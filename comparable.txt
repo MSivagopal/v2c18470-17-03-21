@@ -1,0 +1,50 @@
+package com.test.oops;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Students implements Comparable <Students> {
+	int rollno , age;
+	String fullname;
+	
+	public Students(int rollno, String fullname, int age ) {
+		super();
+		this.rollno = rollno;
+		this.age = age;
+		this.fullname = fullname;
+	}
+
+	@Override
+	public int compareTo(Students o) 
+	{
+		if(age == o.age)
+		{	
+			return 0;
+		}
+		else if(age > o.age)
+		{
+			return 1;
+			
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	public static void main(String[] args) {
+		ArrayList<Students> s = new ArrayList<Students>();
+		s.add(new Students(15150, "Soundarya", 14));
+		s.add(new Students(15158, "Sivaji", 15));
+		s.add(new Students(15155, "Ragulkumar", 14));
+		s.add(new Students(15159, "Shyaam", 13));
+		s.add(new Students(15154, "Supreeth", 14));
+		
+		Collections.sort(s);
+		
+		for(Students ss : s)
+		{
+			System.out.println(ss.rollno+" "+ss.fullname+" "+ss.age);
+		}
+
+	}
+}
